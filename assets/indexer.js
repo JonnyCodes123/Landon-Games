@@ -1,4 +1,4 @@
-import jsonObject from '../json/games.json' assert { type: 'json' };
+import { gamesData } from '../json/games.js'; // Importing formattedData from games.js
 import jsonObject2 from '../json/retrogames.json' assert { type: 'json' };
 
 $(document).ready(function() {
@@ -6,12 +6,12 @@ $(document).ready(function() {
 });
 
 export function linkGenerater(node) {
-  console.log(jsonObject);
-  var allkeys = Object.keys(jsonObject).sort();
+  console.log(gamesData); // Using gamesData instead of jsonObject
+  var allkeys = Object.keys(gamesData).sort();
 
   // Loop through the properties of the object and add them to the dictionary
   for (var key of allkeys) {
-    var code = jsonObject[key];
+    var code = gamesData[key]; // Using gamesData instead of jsonObject
 
     if (code["game-title"] !== "Example Deluxe") {
       var li = document.createElement("li");
@@ -52,7 +52,7 @@ export function generateHeader() {
 
   var header = document.getElementById("header");
 
-    header.innerHTML=`<nav
+    header.innerHTML=`  <nav
       class="navbar navbar-expand-md navbar-light bg-light"
       style="
         --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -141,7 +141,8 @@ export function generateHeader() {
 
 export function generateFooter() {
   var footer = document.getElementById("footer");
-  footer.innerHTML =`<div class="d-flex">
+  footer.innerHTML =`
+<div class="d-flex">
         <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
           <img
             src="assets/images/logo-big.svg"
@@ -223,7 +224,4 @@ export function generateFooter() {
         </div>
       </div>`;
 }
-
-
-
 
