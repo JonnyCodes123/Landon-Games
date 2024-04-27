@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111827" />
+    <!-- Dark background color -->
+    <title>Landon Games</title>
+    <link rel="icon" href="assets\images\logo-small.ico" />
+    <link rel="apple-touch-icon" href="assets\images\logo-small.ico" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css"
+      integrity="sha512-rOTVxSYNb4+/vo9pLIcNAv9yQVpC8DNcFDWPoc+gTv9SLu5H8W0Dn7QA4ffLHKA0wysdo6C5iqc+2LEO1miAow=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets\css\main.css" />
+    <link rel="stylesheet" href="assets\css\indepth.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/regular.min.js"
+      integrity="sha512-kSAGSlODsZwG7bMv/Hydyvybjk+WOz4oEqQiWYwpCxQ7/7yXMFynr2QrvNc2myZW/7wyi0IF2TXZZWMeg8AGhw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body
+    class="bg-gray-900 text-gray-100 scroll-smooth"
+    style="overflow: overlay"
+  >
+    <header id="header">
+    
+    </header>
+
+    <!-- ... (navbar and other content) ... -->
+    <main class="extra-padding container">
+      <div class="" style="width: 100%">
+        <div class="game-container">
+          <div class="game-iframe" id="webretro-container"></div>
+          <div class="game-icons float-right">
+            <button id="fullscreen-button" class="clear" value="Fullscreen">
+              <i
+                class="fa-solid fa-expand cursor-pointer small"
+                title="Fullscreen"
+              ></i>
+            </button>
+          </div>
+          <div class="pl-2">
+            <h1 class="game-title" id="game-title">WebRetro</h1>
+            <span class="text-sm text-gray-300 font-semibold"></span>
+            <p class="game-description" id="game-description">
+              Play games spanning a range of consoles such as NES, SNES, N64,
+              GB, GBC, GBA and even the DS! You can pick a game from our
+              <a>list</a> or bring your own ROM.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container justify-content-center my-5" id="footer">
+      
+    </footer>
+
+    <script
+      type="text/javascript"
+      src="https://webdev.yahix10042.repl.co/embed/embed2.js"
+    ></script>
+    <script type="module" src="assets/indexer.js"></script>
+    <script type="module">
+      import data from "./json/retrogames.json" assert { type: "json" };
+      import { generateHeader, generateFooter } from "./assets/indexer.js";
+
+      generateHeader();
+      generateFooter();
+      
+      var thing = true;
+
+      const queries = location.hash.substr(1);
+      console.log(queries);
+      var systemRom = queries.split("/");
+      console.log(systemRom);
+
+      const fullscreenButton = document.getElementById("fullscreen-button");
+      const fullscreenIframe = document.getElementById("fullscreen-iframe");
+
+      for (const rom of Object.keys(data)) {
+        if (systemRom[1] == rom && systemRom[0] == data[rom]["system"]) {
+          var frame = webretroEmbed(
+            document.getElementById("webretro-container"),
+            "https://webdev.yahix10042.repl.co/embed.html",
+            { system: data[rom]["system"], rom: data[rom]["gamesource"] }
+          );
+
+          var descript = document.getElementById("game-description");
+          var title = document.getElementById("game-title");
+
+          descript.innerHTML =
+            data[rom]["game-description"] +
+            " This " +
+            data[rom]["system-name"] +
+            " game is hosted on WebRetro, where you can play games spanning a range of consoles such as NES, SNES, N64, GB, GBC, GBA and even the DS! You can play with co-op with multiple controllers and can pick a game from our <a class='blue' href='retrogameslistplate.html'> growing list of games.</a>";
+          title.innerText = data[rom]["game-title"] + " on WebRetro";
+        }
+      }
+      fullscreenButton.onclick = function () {
+        frame.requestFullscreen();
+      };
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

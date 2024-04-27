@@ -1,0 +1,89 @@
+export function generateCache() {
+  var cache = document.getElementById("cache");
+    cache.innerHTML =`<script>
+    // Function to get the current timestamp
+    function getCurrentTimestamp() {
+        return new Date().getTime();
+    }
+
+    // Function to get visit information
+    function getVisitInfo() {
+        let visitInfo = JSON.parse(localStorage.getItem('visitInfo')) || [];
+
+        let prevVisitId = visitInfo.length > 0 ? visitInfo[visitInfo.length - 1].visitId : 0;
+
+        let newVisit = {
+            visitId: prevVisitId + 1,
+            visitNumber: visitInfo.length + 1,
+            visitDuration: 0,
+            timestamp: getCurrentTimestamp()
+        };
+
+        visitInfo.push(newVisit);
+
+        localStorage.setItem('visitInfo', JSON.stringify(visitInfo));
+
+        return visitInfo;
+    }
+
+    // Function to update visit duration
+    function updateVisitDuration() {
+        let visitInfo = JSON.parse(localStorage.getItem('visitInfo')) || [];
+
+        if (visitInfo.length > 0) {
+            let currentVisit = visitInfo[visitInfo.length - 1];
+            currentVisit.visitDuration = (getCurrentTimestamp() - currentVisit.timestamp) / 1000;
+
+            localStorage.setItem('visitInfo', JSON.stringify(visitInfo));
+        }
+    }
+
+    // Function to display visit information in a list
+    function displayVisitInfo() {
+        let visitInfoArray = JSON.parse(localStorage.getItem('visitInfo')) || [];
+        let visitList = document.getElementById('visitList');
+
+        // Clear existing list items
+        visitList.innerHTML = '';
+
+        // Create list items for each visit
+        visitInfoArray.forEach(function (visit) {
+            let listItem = document.createElement('li');
+            listItem.textContent = `Visit ID: ${visit.visitId}, Visit Number: ${visit.visitNumber}, Visit Duration: ${visit.visitDuration.toFixed(2)} seconds`;
+            visitList.appendChild(listItem);
+        });
+    }
+
+    // Function to clear the localStorage and visit information
+    function clearCache() {
+        localStorage.removeItem('visitInfo');
+        displayVisitInfo(); // Clear the displayed information
+    }
+
+    window.onload = function() {
+        getVisitInfo();
+        displayVisitInfo();
+
+        // Add event listener to the clear button
+        document.getElementById('clearButton').addEventListener('click', clearCache);
+    };
+
+    window.onbeforeunload = function() {
+        updateVisitDuration();
+        displayVisitInfo(); // Display updated information before leaving the page
+    };
+</script>`;
+}
+
+export function displayCache() {
+  var displayCache = document.getElementById("displayCache");
+    displayCache.innerHTML =` <ul id="visitList"></ul>
+<button id="clearButton">Clear Cache</button>`;
+}
+
+
+
+
+
+
+

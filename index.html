@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111827" />
+    <!-- Dark background color -->
+    <title>Landon Games</title>
+    <link rel="icon" href="assets\images\logo-small.ico" />
+    <link rel="apple-touch-icon" href="assets\images\logo-small.ico" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css"
+      integrity="sha512-rOTVxSYNb4+/vo9pLIcNAv9yQVpC8DNcFDWPoc+gTv9SLu5H8W0Dn7QA4ffLHKA0wysdo6C5iqc+2LEO1miAow=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets\css\main.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/regular.min.js"
+      integrity="sha512-kSAGSlODsZwG7bMv/Hydyvybjk+WOz4oEqQiWYwpCxQ7/7yXMFynr2QrvNc2myZW/7wyi0IF2TXZZWMeg8AGhw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>html { visibility:hidden; }</style>
+  </head>
+  <body
+    class="bg-gray-900 text-gray-100 scroll-smooth"
+    style="overflow: overlay"
+  >
+    <header id="header">
+    
+    </header>
+
+    <main>
+      <section
+        Style="height: 100vh;"
+        class="d-flex flex-column justify-content-center align-items-center px-8 sm:px-16 md:px-20 lg:px-32"
+      >
+        <img
+          style="width: 450px"
+          alt="Radon Games"
+          src="assets\images\logo-big.svg"
+        />
+        <p style="margin: 27px" class="text-center">
+          An open-source unblocked games website built with simplicity in mind.
+        </p>
+        <a
+          style="
+            background-color: #0284c7 !important;
+            padding: 13px 18px;
+            border-radius: 50px;
+            font-size: 16px;
+          "
+          class="btn btn-primary btn-lg shadow-lg"
+          href="gameslistplate.html"
+          target="_self"
+        >
+          <i
+            style="margin: 0px 10px 0px 0px; font-size: 16px; color: #ffffff"
+            class="fa-solid fa-gamepad"
+          ></i
+          >Start Playing!
+        </a>
+      </section>
+    </main>
+
+    <footer class="container justify-content-center my-5" id="footer">
+      
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module">
+      import { generateHeader, generateFooter } from "./assets/indexer.js";
+
+      generateHeader();
+      generateFooter();
+    </script>
+  </body>
+</html>

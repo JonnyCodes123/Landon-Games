@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827"> <!-- Dark background color -->
+    <title>Landon Games</title>
+    <link rel="icon" href="assets/images/logo-small.ico">
+    <link rel="apple-touch-icon" href="assets/images/logo-small.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css" integrity="sha512-rOTVxSYNb4+/vo9pLIcNAv9yQVpC8DNcFDWPoc+gTv9SLu5H8W0Dn7QA4ffLHKA0wysdo6C5iqc+2LEO1miAow==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/indepth.css">
+</head>
+<body class="bg-gray-900 text-gray-100 scroll-smooth" style="overflow: overlay;">
+
+<header id="header">
+
+</header>
+
+<main class="extra-padding container">
+    <div style="width: 100%;">
+        <div class="game-container">
+            <div class="game-iframe">
+                <iframe id="gameFrame" width="100%" height="500px" frameborder="0"></iframe>
+            </div>
+            <div class="game-icons float-right">
+                <button id="fullscreen-button" class="clear">
+                    <i class="fa-solid fa-expand cursor-pointer small" title="Fullscreen"></i>
+                </button>
+            </div>
+            <div class="pl-2">
+                <h1 id="game-title" class="game-title"></h1>
+                <span class="text-sm text-gray-300 font-semibold"></span>
+                <p id="game-description" class="game-description"></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="container justify-content-center my-5" id="footer">
+    
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="module">
+  import { gamesData } from "./json/games.js";
+  import { generateHeader, generateFooter } from "./assets/indexer.js";
+
+  generateHeader();
+  generateFooter();
+  
+    const fullscreenButton = document.getElementById('fullscreen-button');
+    const fullscreenIframe = document.getElementById('gameFrame');
+    const gameTitle = document.getElementById('game-title');
+    const gameDescription = document.getElementById('game-description');
+
+    fullscreenButton.addEventListener('click', () => {
+        if (fullscreenIframe.requestFullscreen) {
+            fullscreenIframe.requestFullscreen();
+        } else if (fullscreenIframe.mozRequestFullScreen) { // Firefox
+            fullscreenIframe.mozRequestFullScreen();
+        } else if (fullscreenIframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            fullscreenIframe.webkitRequestFullscreen();
+        }
+    });
+
+        // Set the title and description from JSON data
+        gameTitle.innerText = gameData["game-title"] + " on Landon";
+        gameDescription.innerText = gameData["game-description"];
+
+        // Get the hash parameter from the URL
+        var hash = window.location.hash.substring(1);
+
+        // Check if the hash parameter exists and load the corresponding content
+        if (hash && gameData.hasOwnProperty(hash)) {
+          var gameHash = gameData[hash];
+          // Set the iframe source to the specified game URL
+          $("#gameFrame").attr("src", gameHash.gamesource);
+          // Set the title and description from JSON data
+          gameDescription.textContent = gameHash["game-description"];
+          // Optionally, update other elements on the page based on game data
+          document.title = gameHash["game-title"] + " on Landon";
+          // Update other elements as needed
+        } else {
+      console.error("Game not found: " + gameKey);
+  }
+
+
+
+            // Check if the game key exists in the gamesource object
+            
+                
+            
+</script>
+
+</body>
+</html>

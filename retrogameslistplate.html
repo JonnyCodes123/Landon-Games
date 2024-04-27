@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827"> <!-- Dark background color -->
+  <title>Landon Games</title>
+  <link rel="icon" href="assets\images\logo-small.ico">
+  <link rel="apple-touch-icon" href="assets\images\logo-small.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css"
+    integrity="sha512-rOTVxSYNb4+/vo9pLIcNAv9yQVpC8DNcFDWPoc+gTv9SLu5H8W0Dn7QA4ffLHKA0wysdo6C5iqc+2LEO1miAow=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="assets\css\main.css">
+  <link rel="stylesheet" href="assets\css\indepth.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/regular.min.js"
+    integrity="sha512-kSAGSlODsZwG7bMv/Hydyvybjk+WOz4oEqQiWYwpCxQ7/7yXMFynr2QrvNc2myZW/7wyi0IF2TXZZWMeg8AGhw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    body {
+      text-align: center;
+      line-height: inherit;
+      color: rgb(243 244 246) !important;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+    }
+
+    .list:hover {
+      color: #f59e0b;
+    }
+
+    .list-box {
+      padding: 60px 0px;
+      text-align: center
+    }
+
+    html { visibility:hidden; }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 scroll-smooth" style="overflow: overlay;">
+
+<header id="header">
+  
+</header>
+
+  <div class="list-box container mt-4">
+    <h1 class="text-2xl">A-Z</h1>
+    <ul class="list-unstyled" id="the-list">
+    </ul>
+  </div>
+
+  <footer class="container justify-content-center my-5" id="footer">
+
+  </footer>
+
+  <script type="module">
+    import { retroLinkGenerater, generateHeader, generateFooter } from "./assets/indexer.js";
+    generateHeader();
+    generateFooter();
+    
+    retroLinkGenerater(document.getElementById("the-list"));
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>
