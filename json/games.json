@@ -1,0 +1,47 @@
+{
+"1v1lol": {
+  "game-title": "1v1lol",
+  "gamesource": "1v1lol/index.html",
+  "game-description": "Discover 1v1, the online building simulator & third person shooting game. I call it Fortnite on PS2. Play Battle royale and a variety of other game modes for you to enjoy!"
+},
+"stickman-hook": {
+  "game-title": "Stickman Hook",
+  "gamesource": "stickman_hook/index.html",
+  "game-description": "Thrilling fun across hundreds of challenging levels! Swing your way through obstacles to skillfully complete each stage while collecting awesome skins. Get hooked!"
+},
+"retro-bowl": {
+  "game-title": "Retro Bowl",
+  "gamesource": "retro-bowl/index.html",
+  "game-description": "Retro Bowl emulates the gameplay of American football and was heavily influenced by the Tecmo Bowl series. In Retro Bowl, the player controls the team's offense while also acting as the team's general manager."
+},
+"vex-3": {
+  "game-title": "Vex 3",
+  "gamesource": "./vex3/index.html",
+  "game-description": "Vex is a challenging platform adventure game. Make your way from one platform to the other and avoid deadly obstacles such as buzzsaws, spikes, crumbling blocks, and more! Run and jump to reach the flags. These are the checkpoints."
+},
+"vex-4": {
+  "game-title": "Vex 4",
+  "gamesource": "./vex4/index.html",
+  "game-description": "Vex is a challenging platform adventure game. Make your way from one platform to the other and avoid deadly obstacles such as buzzsaws, spikes, crumbling blocks, and more! Run and jump to reach the flags. These are the checkpoints."
+},
+"vex-5": {
+  "game-title": "Vex 5",
+  "gamesource": "./vex5/index.html",
+  "game-description": "Vex is a challenging platform adventure game. Make your way from one platform to the other and avoid deadly obstacles such as buzzsaws, spikes, crumbling blocks, and more! Run and jump to reach the flags. These are the checkpoints."
+},
+"vex-6": {
+  "game-title": "Vex 6",
+  "gamesource": "./vex6/index.html",
+  "game-description": "Vex is a challenging platform adventure game. Make your way from one platform to the other and avoid deadly obstacles such as buzzsaws, spikes, crumbling blocks, and more! Run and jump to reach the flags. These are the checkpoints."
+},
+"vex-7": {
+  "game-title": "Vex 7",
+  "gamesource": "./vex7/index.html",
+  "game-description": "Vex is a challenging platform adventure game. Make your way from one platform to the other and avoid deadly obstacles such as buzzsaws, spikes, crumbling blocks, and more! Run and jump to reach the flags. These are the checkpoints."
+},
+"n-gon": {
+  "game-title": "N-Gon",
+  "gamesource": "./n-gon/index.html",
+  "game-description": "N-GON is a vertical scroll shooter where you constantly face waves and waves of enemies. Try to survive and win the game by accumulating power-ups and new weapons!"
+}
+}
